@@ -11,13 +11,20 @@ import play.data.validation.Required;
 import play.db.jpa.Model;
 
 @Entity
-public class Collection extends Model {
+public class Category extends Model {
 
     @Required
     public String name;
 
+    public Category() {
+    }
+
+    public Category(String name) {
+        this.name = name;
+    }
+
     @ManyToMany
-    @JoinTable(name = "collection_product", joinColumns = { @JoinColumn(name = "collection_id") }, inverseJoinColumns = { @JoinColumn(name = "product_id") })
+    @JoinTable(name = "category_product", joinColumns = { @JoinColumn(name = "category_id") }, inverseJoinColumns = { @JoinColumn(name = "product_id") })
     public List<Product> products;
 
 }

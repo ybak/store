@@ -11,15 +11,17 @@ import play.data.validation.Required;
 import play.db.jpa.Model;
 
 @Entity
-public class ProductOption extends Model  {
+public class ProductOption extends Model {
 
     @ManyToOne
     public Product product;
-    
+
     public String title;
 
     public int type;// 0: color 1:size 3:misc
-    
-    @OneToMany(mappedBy="productOption", cascade=CascadeType.ALL)
-    public List<ProductOptionItem> items;
+
+    public boolean isMandatory;
+
+    @OneToMany(mappedBy = "productOption", cascade = CascadeType.ALL)
+    public List<ProductOptionSelection> selectionsList;
 }

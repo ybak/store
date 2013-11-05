@@ -7,15 +7,15 @@ import play.data.validation.Required;
 import play.db.jpa.Model;
 
 @Entity
-public class ProductOptionItem extends Model  {
+public class ProductOptionSelection extends Model  {
 
     @ManyToOne
     @Required
     public ProductOption productOption;
     
-    public String name;
+    public String value;
     
     public String description;
     
-    public float surcharge;
+    public float priceChange;
 }

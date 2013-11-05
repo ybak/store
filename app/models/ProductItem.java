@@ -6,18 +6,20 @@ import javax.persistence.ManyToOne;
 import play.db.jpa.Model;
 
 @Entity
-public class ProductInventory extends Model  {
+public class ProductItem extends Model  {
     
     @ManyToOne
     public Product product;
     
     @ManyToOne
-    public ProductOptionItem firstOptionItem;
+    public ProductOptionSelection firstOptionItem;
 
     @ManyToOne
-    public ProductOptionItem secondOptionItem;
+    public ProductOptionSelection secondOptionItem;
     
-    public boolean active;
+    public boolean enabled;
     
     public int inventory;
+    
+    public float totalPrice;
 }

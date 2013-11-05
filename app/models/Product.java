@@ -1,5 +1,6 @@
 package models;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -12,31 +13,48 @@ import play.db.jpa.Model;
 @Entity
 public class Product extends Model {
 
-    @Required
     public String title;
 
-    @Required
-    public float price;
-
-    public String images;
-
-    public String overview;
-
-    public String detail;
-
-    public float retailPrice;
-
     public float weight;
+    
+    public String details;
+    
+    public String ribbon;
+    
+    public float price;
+    
+    public float retailPrice;
+    
+    public boolean isInventoryManaged;
+    
+    public String overview;
+    
+    public boolean enabled;
+    
+    public Date lastUpdatedAt;//乐观锁
+    
+    public Product() {
+    }
 
-    public int totalInventory;
+    public Product(String title, float price, String overview, String details, float retailPrice,
+            float weight) {
+        this.title = title;
+        this.price = price;
+        this.overview = overview;
+        this.details = details;
+        this.retailPrice = retailPrice;
+        this.weight = weight;
+    }
 
     @ManyToMany(mappedBy = "products")
-    public List<Collection> collections;
+    public List<Category> categoriesList;
 
     @OneToMany(mappedBy = "product")
-    public List<ProductOption> productOptions;
+    public List<ProductOption> optionsList;
 
     @OneToMany(mappedBy = "product")
-    public List<ProductInventory> inventories;
+    public List<ProductItem> productsItemsList;
 
+    public List<ProductMedia> mediaList;
+    
 }
