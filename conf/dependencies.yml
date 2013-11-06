@@ -2,3 +2,5 @@
 
 require:
     - play
+    - commons-httpclient 3.0.1
+    

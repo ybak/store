@@ -55,6 +55,7 @@ public class Product extends Model {
     @OneToMany(mappedBy = "product")
     public List<ProductItem> productsItemsList;
 
+    @OneToMany(mappedBy = "product")
     public List<ProductMedia> mediaList;
     
 }
