@@ -38,4 +38,9 @@ public class BasicTest extends UnitTest {
         System.out.println(first);
     }
 
+    @Test
+    public void fullTest() {
+        Fixtures.loadModels("data.yml");
+    }
+
 }
