@@ -1,7 +1,9 @@
 package models.product;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -18,9 +20,9 @@ public class Category extends Model {
     @Required
     public String name;
 
-    @ManyToMany(fetch=FetchType.EAGER)
+    @ManyToMany
     @JoinTable(name = "category_product", joinColumns = { @JoinColumn(name = "category_id") }, inverseJoinColumns = { @JoinColumn(name = "product_id") })
-    public List<Product> products = new ArrayList<>();
+    public Set<Product> products = new HashSet<>();
 
     public Category(String name) {
         this.name = name;

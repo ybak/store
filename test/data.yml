@@ -12,8 +12,8 @@ product.Product(iPod):
  
 product.Product(iPhone):
     title:                  iPhone
-    price:                  100.00
-    retailPrice:            150.00
+    price:                  250.00
+    retailPrice:            350.00
     enabled:                true
     overview:               The iPhone is a line of smartphones designed and marketed by Apple Inc. 
     details:                >

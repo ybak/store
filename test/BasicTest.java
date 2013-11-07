@@ -41,6 +41,11 @@ public class BasicTest extends UnitTest {
     @Test
     public void fullTest() {
         Fixtures.loadModels("data.yml");
+        Category category = Category.find("name", "Electronics").first();
+        
+        Product iPad = new Product(true, true, "iPad", 150f, 250f, "iPad is a line of tablet computers designed and marketed by Apple Inc.", "iPad is a line of tablet computers designed and marketed by Apple Inc., which runs Apple's iOS. The first iPad was released on April 3, 2010; the most recent iPad models, the iPad Air and second generation iPad Mini, were revealed on October 22, 2013 and will go on sale November 1, 2013 and late November respectfully. The user interface is built around the device's multi-touch screen, including a virtual keyboard. The iPad has built-in Wi-Fi and, on some models, cellular connectivity.").save();
+        iPad.addItem(true, 20).addMedia("http://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/IPad_Air.png/220px-IPad_Air.png");
+        category.addProduct(iPad);
     }
 
 }
