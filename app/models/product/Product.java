@@ -3,7 +3,9 @@ package models.product;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -38,13 +40,13 @@ public class Product extends Model {
     public boolean isInventoryManaged;
 
     @ManyToMany(mappedBy = "products")
-    public List<Category> categoriesList = new ArrayList<>();
+    public Set<Category> categories = new HashSet<>();
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
-    public List<ProductItem> productItemsList = new ArrayList<>();
+    public List<ProductItem> productItems = new ArrayList<>();
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
-    public List<ProductMedia> mediaList = new ArrayList<>();
+    public List<ProductMedium> media = new ArrayList<>();
 
     // ************* 未启用属性 **************//
     // public float weight;
@@ -68,16 +70,23 @@ public class Product extends Model {
         this.lastUpdatedAt = new Date();
     }
 
+    public Product delete() {
+        for (Category category : categories) {
+            category.deleteProduct(this);
+        }
+        return this;
+    }
+
     public Product addItem(boolean enabled, int inventory) {
         ProductItem item = new ProductItem(this, enabled, inventory).save();
-        this.productItemsList.add(item);
+        this.productItems.add(item);
         this.save();
         return this;
     }
 
     public Product addMedia(String picture) {
-        ProductMedia media = ProductMedia.buildPicture(this, picture).save();
-        this.mediaList.add(media);
+        ProductMedium media = ProductMedium.buildPicture(this, picture).save();
+        this.media.add(media);
         this.save();
         return this;
     }

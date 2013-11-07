@@ -6,7 +6,7 @@ import javax.persistence.ManyToOne;
 import play.db.jpa.Model;
 
 @Entity
-public class ProductMedia extends Model {
+public class ProductMedium extends Model {
 
     public String mediaURL;
 
@@ -24,13 +24,13 @@ public class ProductMedia extends Model {
     @ManyToOne
     public Product product;
 
-    public static ProductMedia buildPicture(Product product, String picture) {
-        ProductMedia pm = new ProductMedia();
+    public static ProductMedium buildPicture(Product product, String picture) {
+        ProductMedium pm = new ProductMedium();
         pm.mediaURL = picture;
         pm.mediaType = 0;
         pm.product = product;
         pm.save();
-        product.mediaList.add(pm);
+        product.media.add(pm);
         return pm;
     }
 

@@ -29,17 +29,17 @@ product.Category(Electronics):
     name:                   Electronics
     products:               [iPod, iPhone]
 
-product.ProductMedia(iPodPic):
+product.ProductMedium(iPodPic):
     mediaURL:               http://2f.zol-img.com.cn/product/19_280x210/371/ceUhyaRG7II.jpg
     mediaType:              0
     product:                iPod
 
-product.ProductMedia(iPhonePic1):
+product.ProductMedium(iPhonePic1):
     mediaURL:               http://2d.zol-img.com.cn/product/119_280x210/993/ce1ckMyKnTMuU.jpg
     mediaType:              0
     product:                iPhone
 
-product.ProductMedia(iPhonePic2):
+product.ProductMedium(iPhonePic2):
     mediaURL:               http://2b.zol-img.com.cn/product/121_280x210/789/cezlpgszcNkO.jpg
     mediaType:              0
     product:                iPhone

@@ -20,8 +20,10 @@ public class Category extends Model {
     @Required
     public String name;
 
+    // Use Set here for many-to-many performance reason.
+    // http://stackoverflow.com/questions/8174667/hibernate-many-to-many-relations-set-or-list
     @ManyToMany
-    @JoinTable(name = "category_product", joinColumns = { @JoinColumn(name = "category_id") }, inverseJoinColumns = { @JoinColumn(name = "product_id") })
+    @JoinTable(name = "category_product", joinColumns = { @JoinColumn(name = "category") }, inverseJoinColumns = { @JoinColumn(name = "product") })
     public Set<Product> products = new HashSet<>();
 
     public Category(String name) {
@@ -30,6 +32,13 @@ public class Category extends Model {
 
     public Category addProduct(Product product) {
         this.products.add(product);
+        product.categories.add(this);
+        this.save();
+        return this;
+    }
+
+    public Category deleteProduct(Product product) {
+        this.products.remove(product);
         this.save();
         return this;
     }
