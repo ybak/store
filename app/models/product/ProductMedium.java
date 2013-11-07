@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 
 import play.db.jpa.Model;
+import util.GsonExclude;
 
 @Entity
 public class ProductMedium extends Model {
@@ -22,6 +23,7 @@ public class ProductMedium extends Model {
     // public int mediaTitle;
 
     @ManyToOne
+    @GsonExclude
     public Product product;
 
     public static ProductMedium buildPicture(Product product, String picture) {

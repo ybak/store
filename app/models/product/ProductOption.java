@@ -7,7 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
-import play.data.validation.Required;
 import play.db.jpa.Model;
 
 //未启用

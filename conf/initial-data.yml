@@ -1,0 +1,55 @@
+# Test data
+
+product.Product(iPod):
+    title:                  iPod Touch
+    price:                  100.00
+    retailPrice:            150.00
+    enabled:                true
+    overview:               The iPod Touch (stylized and marketed as iPod touch) is a multi-purpose pocket computer designed and marketed by Apple Inc with a touchscreen-based user interface.
+    details:                The iPod Touch (stylized and marketed as iPod touch) is a multi-purpose pocket computer designed and marketed by Apple Inc with a touchscreen-based user interface. It can be used as a music and video player, digital camera, handheld game console, and personal digital assistant.[8] It connects to the internet through Wi-Fi base stations and is therefore not a smartphone, though its design and operating system are very similar to Apple's iPhone. As of May 2013, 100 million iPod Touch units have been sold.
+    lastUpdatedAt:          2013-11-07 12:00:00 
+    isInventoryManaged:     true
+ 
+product.Product(iPhone):
+    title:                  iPhone
+    price:                  250.00
+    retailPrice:            350.00
+    enabled:                true
+    overview:               The iPhone is a line of smartphones designed and marketed by Apple Inc. 
+    details:                >
+                            The iPhone is a line of smartphones designed and marketed by Apple Inc. It runs Apple's iOS mobile operating system.[15] The first generation iPhone was released on June 29, 2007;[16] the most recent iPhones, the seventh-generation iPhone 5C and iPhone 5S, were introduced on September 10, 2013.
+                            The user interface is built around the device's multi-touch screen, including a virtual keyboard. The iPhone has Wi-Fi and cellular connectivity (2G, 3G, 4G, and LTE). An iPhone can shoot video (though this was not a standard feature until the iPhone 3GS), take photos, play music, send and receive email, browse the web, send texts, and receive visual voicemail. Other functions — video games, reference works, GPS navigation, social networking, etc. — can be enabled by downloading application programs (‘apps’); as of October 2013, the App Store offered more than 1 million apps by Apple and third parties.
+    lastUpdatedAt:          2013-11-07 10:00:00 
+    isInventoryManaged:     true
+    
+product.Category(Clothing):
+    name:                   Clothing
+
+product.Category(Electronics):
+    name:                   Electronics
+    products:               [iPod, iPhone]
+
+product.ProductMedium(iPodPic):
+    mediaURL:               http://2f.zol-img.com.cn/product/19_280x210/371/ceUhyaRG7II.jpg
+    mediaType:              0
+    product:                iPod
+
+product.ProductMedium(iPhonePic1):
+    mediaURL:               http://2d.zol-img.com.cn/product/119_280x210/993/ce1ckMyKnTMuU.jpg
+    mediaType:              0
+    product:                iPhone
+
+product.ProductMedium(iPhonePic2):
+    mediaURL:               http://2b.zol-img.com.cn/product/121_280x210/789/cezlpgszcNkO.jpg
+    mediaType:              0
+    product:                iPhone
+    
+product.ProductItem(iPodItem):
+    enabled:                true
+    inventory:              30
+    product:                iPod
+    
+product.ProductItem(iPhoneItem):
+    enabled:                true
+    inventory:              40
+    product:                iPhone

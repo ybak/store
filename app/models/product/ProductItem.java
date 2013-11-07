@@ -1,13 +1,10 @@
 package models.product;
 
-import java.util.List;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
 import play.db.jpa.Model;
+import util.GsonExclude;
 
 @Entity
 public class ProductItem extends Model {
@@ -17,6 +14,7 @@ public class ProductItem extends Model {
     public int inventory;
 
     @ManyToOne
+    @GsonExclude
     public Product product;
 
     public ProductItem(Product product, boolean enabled, int inventory) {

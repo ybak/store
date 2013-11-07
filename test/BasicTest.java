@@ -1,17 +1,15 @@
-import org.junit.*;
+import java.util.List;
 
-import java.util.*;
-
-import javax.persistence.EntityTransaction;
-
-import play.db.jpa.JPA;
-import play.db.jpa.JPABase;
-import play.db.jpa.Transactional;
-import play.test.*;
-import models.*;
 import models.product.Category;
 import models.product.Product;
-import models.product.ProductMedium;
+
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+
+import play.test.Fixtures;
+import play.test.UnitTest;
+import util.GsonUtil;
 
 public class BasicTest extends UnitTest {
 
@@ -44,6 +42,9 @@ public class BasicTest extends UnitTest {
     @Test
     public void testCategory() {
         Fixtures.loadModels("data.yml");
+        String json = GsonUtil.toJson(Category.findAll());
+        System.out.println(json);
+
         Category category = Category.find("name", "Electronics").first();
         Assert.assertEquals(2, category.products.size());
 

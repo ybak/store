@@ -1,7 +1,6 @@
 package models.product;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
@@ -14,9 +13,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 import play.data.validation.MaxSize;
-import play.data.validation.Required;
-import play.db.jpa.JPABase;
 import play.db.jpa.Model;
+import util.GsonExclude;
 
 @Entity
 public class Product extends Model {
@@ -40,6 +38,7 @@ public class Product extends Model {
     public boolean isInventoryManaged;
 
     @ManyToMany(mappedBy = "products")
+    @GsonExclude
     public Set<Category> categories = new HashSet<>();
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
