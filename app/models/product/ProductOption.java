@@ -1,4 +1,4 @@
-package models;
+package models.product;
 
 import java.util.List;
 
@@ -10,6 +10,7 @@ import javax.persistence.OneToMany;
 import play.data.validation.Required;
 import play.db.jpa.Model;
 
+//未启用
 @Entity
 public class ProductOption extends Model {
 
