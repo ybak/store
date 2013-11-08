@@ -26,7 +26,7 @@ public class PaymentConfig extends Model {
     public String config;// 配置
 
     @OneToMany(mappedBy = "paymentConfig", cascade = CascadeType.ALL)
-    public List<Order> orderSet;// 订单
+    public List<Order> orders;// 订单
     @OneToMany(mappedBy = "paymentConfig", cascade = CascadeType.ALL)
-    public List<Payment> paymentSet;// 支付
+    public List<Payment> payments;// 支付
 }

@@ -21,9 +21,9 @@ public class Member extends Model {
     public Boolean isAccountLocked;// 账号是否锁定
 
     @OneToMany(mappedBy = "member")
-    public List<Receiver> receiverSet;// 收货地址
+    public List<Receiver> receivers;// 收货地址
     @OneToMany(mappedBy = "member")
-    public List<CartItem> cartItemSet;// 购物车项
+    public List<CartItem> cartItems;// 购物车项
     @ManyToMany
     public Set<Product> favoriteProducts;// 收藏夹商品
 

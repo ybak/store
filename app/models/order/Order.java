@@ -53,11 +53,11 @@ public class Order extends Model {
     public Member member;// 会员
 
     @OneToMany(mappedBy = "orderId", cascade = CascadeType.ALL)
-    public List<OrderItem> orderItemSet;// 订单项
+    public List<OrderItem> orderItems;// 订单项
     @OneToMany(mappedBy = "orderId", cascade = CascadeType.ALL)
-    public List<OrderLog> orderLogSet;// 订单日志
+    public List<OrderLog> orderLogs;// 订单日志
     @OneToMany(mappedBy = "orderId", cascade = CascadeType.ALL)
-    public List<Payment> paymentSet;// 收款
+    public List<Payment> payments;// 收款
 
     // public String memo;// 附言
     // public Double productWeight;// 商品重量
