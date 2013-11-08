@@ -11,13 +11,17 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
+import models.Store;
 import play.data.validation.MaxSize;
 import play.db.jpa.Model;
 import util.GsonExclude;
 
 @Entity
+@Table(name = "store_product")
 public class Product extends Model {
 
     public String title;
@@ -47,7 +51,7 @@ public class Product extends Model {
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
     public List<ProductMedium> media = new ArrayList<>();
-
+    
     // ************* 未启用属性 **************//
     // public float weight;
     //

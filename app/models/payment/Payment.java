@@ -4,11 +4,13 @@ import java.math.BigDecimal;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import play.db.jpa.Model;
 import models.order.Order;
 
 @Entity
+@Table(name = "store_payment")
 public class Payment extends Model {
     // 支付类型（在线充值、预存款支付、在线支付、线下支付）
     public enum PaymentType {

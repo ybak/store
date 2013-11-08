@@ -2,11 +2,13 @@ package models.product;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import play.db.jpa.Model;
 import util.GsonExclude;
 
 @Entity
+@Table(name = "store_product_item")
 public class ProductItem extends Model {
 
     public boolean enabled;

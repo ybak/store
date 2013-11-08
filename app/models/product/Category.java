@@ -11,13 +11,20 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
+import models.Store;
 import play.data.validation.Required;
 import play.db.jpa.Model;
 
 @Entity
+@Table(name = "store_category")
 public class Category extends Model {
+
+    @ManyToOne
+    public Store store;
 
     @Required
     public String name;

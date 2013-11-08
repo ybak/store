@@ -9,12 +9,14 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import play.data.validation.Required;
 import play.db.jpa.Model;
 import util.GsonExclude;
 
 @Entity
+@Table(name = "store_category_product")
 public class CategoryProduct extends Model {
 
     @ManyToOne

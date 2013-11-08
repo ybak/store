@@ -8,12 +8,15 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import javax.persistence.Transient;
 
 import models.product.Product;
+import models.product.ProductItem;
 import play.db.jpa.Model;
 
 @Entity
+@Table(name = "store_order_item")
 public class OrderItem extends Model {
 
     public String productSn;// 商品货号
@@ -28,6 +31,6 @@ public class OrderItem extends Model {
     @ManyToOne
     public Order orderId;// 订单
     @ManyToOne
-    public Product product;// 商品
+    public ProductItem productItem;// 商品
 
 }

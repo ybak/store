@@ -7,12 +7,14 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import models.cart.CartItem;
 import models.product.Product;
 import play.db.jpa.Model;
 
 @Entity
+@Table(name = "store_member")
 public class Member extends Model {
     public String username;// 用户名
     public String password;// 密码

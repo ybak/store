@@ -7,11 +7,13 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import play.db.jpa.Model;
 import models.order.Order;
 
 @Entity
+@Table(name = "store_payment_config")
 public class PaymentConfig extends Model {
     // 支付配置类型（支付宝）
     public enum PaymentConfigType {
