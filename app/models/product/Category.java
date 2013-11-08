@@ -2,6 +2,7 @@ package models.product;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
@@ -37,8 +38,24 @@ public class Category extends Model {
     }
 
     public Category deleteProduct(Product product) {
-        this.products.remove(product);
+        Iterator<CategoryProduct> iterator = products.iterator();
+        while (iterator.hasNext()) {
+            CategoryProduct cp = iterator.next();
+            if (cp.product.id.equals(product.id)) {
+                iterator.remove();
+            }
+        }
         this.save();
         return this;
+    }
+
+    public List<CategoryProduct> getEnabledProducts() {
+        List<CategoryProduct> cps = new ArrayList<>();
+        for (CategoryProduct cp : products) {
+            if (cp.enabled) {
+                cps.add(cp);
+            }
+        }
+        return cps;
     }
 }

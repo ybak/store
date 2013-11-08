@@ -1,3 +1,4 @@
+import java.math.BigDecimal;
 import java.util.List;
 
 import models.product.Category;
@@ -24,11 +25,13 @@ public class BasicTest extends UnitTest {
     @Test
     public void testCategoryAndProduct() {
         Category category = new Category("Clothing").save();
-        Product product1 = new Product(true, true, "漂亮裙子", 300f, 500f, "很漂亮的裙子", "非常漂亮的裙子,很合适").save();
+        Product product1 = new Product(true, true, "漂亮裙子", BigDecimal.valueOf(300), BigDecimal.valueOf(500), "很漂亮的裙子",
+                "非常漂亮的裙子,很合适").save();
         product1.addItem(true, 30).addMedia("/picture/skirt.jpg").addMedia("/picture/skirt2.jpg");
         category.addProduct(product1);
 
-        Product product2 = new Product(true, true, "漂亮T恤", 200f, 400f, "很漂亮的T恤", "非常漂亮的T恤,很合适").save();
+        Product product2 = new Product(true, true, "漂亮T恤", BigDecimal.valueOf(200), BigDecimal.valueOf(400), "很漂亮的T恤",
+                "非常漂亮的T恤,很合适").save();
         product2.addItem(true, 20).addMedia("/picture/tshirt.jpg");
         category.addProduct(product2);
 
@@ -48,7 +51,8 @@ public class BasicTest extends UnitTest {
         Category category = Category.find("name", "Electronics").first();
         Assert.assertEquals(2, category.products.size());
 
-        Product iPad = new Product(true, true, "iPad", 150f, 250f, IPAD_DESC, IPAD_OVERVIEW).save();
+        Product iPad = new Product(true, true, "iPad", BigDecimal.valueOf(150), BigDecimal.valueOf(250), IPAD_DESC,
+                IPAD_OVERVIEW).save();
         iPad.addItem(true, 20).addMedia(
                 "http://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/IPad_Air.png/220px-IPad_Air.png");
         category.addProduct(iPad);

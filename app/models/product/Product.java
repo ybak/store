@@ -1,5 +1,6 @@
 package models.product;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
@@ -21,9 +22,9 @@ public class Product extends Model {
 
     public String title;
 
-    public float price;
+    public BigDecimal price;
 
-    public float retailPrice;
+    public BigDecimal retailPrice;
 
     public boolean enabled;
 
@@ -58,7 +59,7 @@ public class Product extends Model {
     public Product() {
     }
 
-    public Product(boolean enabled, boolean isInventoryManaged, String title, float price, float retailPrice,
+    public Product(boolean enabled, boolean isInventoryManaged, String title, BigDecimal price, BigDecimal retailPrice,
             String overview, String details) {
         this.title = title;
         this.price = price;

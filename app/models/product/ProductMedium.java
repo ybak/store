@@ -9,9 +9,13 @@ import util.GsonExclude;
 @Entity
 public class ProductMedium extends Model {
 
+    public static enum MediaType {
+        IMAGE, VIDEO
+    }
+
     public String mediaURL;
 
-    public int mediaType; // 0: picture , 1: video
+    public MediaType mediaType; // 0: image , 1: video
 
     // 属性未启用
     // public String mediaIconURL;
@@ -29,7 +33,7 @@ public class ProductMedium extends Model {
     public static ProductMedium buildPicture(Product product, String picture) {
         ProductMedium pm = new ProductMedium();
         pm.mediaURL = picture;
-        pm.mediaType = 0;
+        pm.mediaType = MediaType.IMAGE;
         pm.product = product;
         pm.save();
         product.media.add(pm);

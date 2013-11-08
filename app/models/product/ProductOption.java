@@ -10,7 +10,6 @@ import javax.persistence.OneToMany;
 import play.db.jpa.Model;
 
 //未启用
-@Entity
 public class ProductOption extends Model {
 
     @ManyToOne

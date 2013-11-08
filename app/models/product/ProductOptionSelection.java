@@ -1,5 +1,7 @@
 package models.product;
 
+import java.math.BigDecimal;
+
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 
@@ -7,7 +9,6 @@ import play.data.validation.Required;
 import play.db.jpa.Model;
 
 //未启用
-@Entity
 public class ProductOptionSelection extends Model {
 
     @ManyToOne
@@ -18,5 +19,5 @@ public class ProductOptionSelection extends Model {
 
     public String description;
 
-    public float priceChange;
+    public BigDecimal priceChange;
 }
