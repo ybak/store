@@ -2,9 +2,14 @@ package models.payment;
 
 import java.math.BigDecimal;
 
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+
+import play.db.jpa.Model;
 import models.order.Order;
 
-public class Payment {
+@Entity
+public class Payment extends Model {
     // 支付类型（在线充值、预存款支付、在线支付、线下支付）
     public enum PaymentType {
         RECHARGE, DEPOSIT, ONLINE, OFFLINE
@@ -27,7 +32,9 @@ public class Payment {
     public String memo;// 备注
     public PaymentStatus paymentStatus;// 支付状态
 
+    @ManyToOne
     public PaymentConfig paymentConfig;// 支付配置
-    public Order order;// 订单
+    @ManyToOne
+    public Order orderId;// 订单
 
 }

@@ -7,16 +7,13 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 
 import models.product.Product;
 import play.db.jpa.Model;
 
-/**
- * Bean类 - 订单项
- */
-
-//@Entity
+@Entity
 public class OrderItem extends Model {
 
     public String productSn;// 商品货号
@@ -28,7 +25,9 @@ public class OrderItem extends Model {
     public Integer deliveryQuantity;// 发货数量
     public Integer totalDeliveryQuantity;// 总发货量
 
-    public Order order;// 订单
+    @ManyToOne
+    public Order orderId;// 订单
+    @ManyToOne
     public Product product;// 商品
 
 }

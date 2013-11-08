@@ -1,14 +1,11 @@
 package models.order;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 
 import play.db.jpa.Model;
 
-/**
- * 实体类 - 订单日志
- */
-
-//@Entity
+@Entity
 public class OrderLog extends Model {
 
     // 订单日志类型（订单创建、订单修改、订单支付、订单退款、订单发货、订单退货、订单完成、订单作废）
@@ -21,6 +18,7 @@ public class OrderLog extends Model {
     public String operator;// 操作员
     public String info;// 日志信息
 
-    public Order order;// 订单
+    @ManyToOne
+    public Order orderId;// 订单
 
 }
