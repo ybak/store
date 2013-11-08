@@ -35,7 +35,7 @@ public class BasicTest extends UnitTest {
         List<Product> products = Product.findAll();
         Assert.assertEquals(2, products.size());
 
-        product1.delete();
+        product1.disable();
         category.delete();
     }
 

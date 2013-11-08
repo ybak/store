@@ -27,7 +27,16 @@ product.Category(Clothing):
 
 product.Category(Electronics):
     name:                   Electronics
-    products:               [iPod, iPhone]
+    
+product.CategoryProduct(cp1):
+    category:               Electronics 
+    product:                iPod
+    enabled:                true
+
+product.CategoryProduct(cp2):
+    category:               Electronics 
+    product:                iPhone
+    enabled:                true
 
 product.ProductMedium(iPodPic):
     mediaURL:               http://2f.zol-img.com.cn/product/19_280x210/371/ceUhyaRG7II.jpg

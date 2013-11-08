@@ -37,9 +37,9 @@ public class Product extends Model {
 
     public boolean isInventoryManaged;
 
-    @ManyToMany(mappedBy = "products")
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
     @GsonExclude
-    public Set<Category> categories = new HashSet<>();
+    public List<CategoryProduct> categories = new ArrayList<>();
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
     public List<ProductItem> productItems = new ArrayList<>();
@@ -69,11 +69,12 @@ public class Product extends Model {
         this.lastUpdatedAt = new Date();
     }
 
-    public Product delete() {
-        for (Category category : categories) {
-            category.deleteProduct(this);
-        }
-        return this;
+    public Product enable() {
+        return enable(true);
+    }
+
+    public Product disable() {
+        return enable(false);
     }
 
     public Product addItem(boolean enabled, int inventory) {
@@ -86,6 +87,15 @@ public class Product extends Model {
     public Product addMedia(String picture) {
         ProductMedium media = ProductMedium.buildPicture(this, picture).save();
         this.media.add(media);
+        this.save();
+        return this;
+    }
+
+    private Product enable(boolean enabled) {
+        for (CategoryProduct cp : categories) {
+            cp.enabled = enabled;
+        }
+        this.enabled = enabled;
         this.save();
         return this;
     }
