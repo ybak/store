@@ -1,6 +1,9 @@
 package controllers.api;
 
+import java.io.InputStream;
 import java.util.List;
+
+import org.apache.commons.lang.StringUtils;
 
 import models.product.Category;
 import play.mvc.Controller;
@@ -13,4 +16,22 @@ public class ApiController extends Controller {
         renderJSON(GsonUtil.toJson(categories));
     }
 
+    public static void addProduct() throws Exception {
+    }
+
+    public static void updateProduct() throws Exception {
+    }
+
+    public static void getStoreOrders() throws Exception {
+    }
+
+    public static void getMemberOrders() throws Exception {
+    }
+
+    public static void udpateOrder() throws Exception {
+    }
+
+    public static void memberConfirmOrder() throws Exception {
+    }
+    
 }
