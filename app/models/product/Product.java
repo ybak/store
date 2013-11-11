@@ -47,13 +47,13 @@ public class Product extends Model {
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
     @GsonExclude
-    public List<CategoryProduct> categories = new ArrayList<>();
+    public List<CategoryProduct> categories = new ArrayList<CategoryProduct>();
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
-    public List<ProductItem> productItems = new ArrayList<>();
+    public List<ProductItem> productItems = new ArrayList<ProductItem>();
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
-    public List<ProductMedium> media = new ArrayList<>();
+    public List<ProductMedium> media = new ArrayList<ProductMedium>();
     
     // ************* 未启用属性 **************//
     // public float weight;

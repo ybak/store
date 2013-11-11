@@ -30,7 +30,7 @@ public class Category extends Model {
     public String name;
 
     @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
-    public List<CategoryProduct> products = new ArrayList<>();
+    public List<CategoryProduct> products = new ArrayList<CategoryProduct>();
 
     public Category(String name) {
         this.name = name;
@@ -57,7 +57,7 @@ public class Category extends Model {
     }
 
     public List<CategoryProduct> getEnabledProducts() {
-        List<CategoryProduct> cps = new ArrayList<>();
+        List<CategoryProduct> cps = new ArrayList<CategoryProduct>();
         for (CategoryProduct cp : products) {
             if (cp.enabled) {
                 cps.add(cp);
