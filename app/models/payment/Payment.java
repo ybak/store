@@ -3,10 +3,12 @@ package models.payment;
 import java.math.BigDecimal;
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import play.db.jpa.Model;
+import models.Store;
 import models.order.Order;
 
 @Entity
@@ -37,6 +39,9 @@ public class Payment extends Model {
     @ManyToOne
     public PaymentConfig paymentConfig;// 支付配置
     @ManyToOne
-    public Order orderId;// 订单
+    @JoinColumn(name = "order_id")
+    public Order order;// 订单
+    @ManyToOne
+    public Store store;
 
 }

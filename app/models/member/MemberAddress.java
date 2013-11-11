@@ -7,8 +7,8 @@ import javax.persistence.Table;
 import play.db.jpa.Model;
 
 @Entity
-@Table(name = "store_receiver")
-public class Receiver extends Model {
+@Table(name = "store_member_address")
+public class MemberAddress extends Model {
 
     public String name;// 收货人姓名
     public String areaPath;// 收货地区路径

@@ -23,6 +23,9 @@ import util.GsonExclude;
 @Entity
 @Table(name = "store_product")
 public class Product extends Model {
+    
+    @ManyToOne
+    public Store store;
 
     public String title;
 

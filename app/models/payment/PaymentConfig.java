@@ -6,10 +6,12 @@ import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import play.db.jpa.Model;
+import models.Store;
 import models.order.Order;
 
 @Entity
@@ -31,4 +33,7 @@ public class PaymentConfig extends Model {
     public List<Order> orders;// 订单
     @OneToMany(mappedBy = "paymentConfig", cascade = CascadeType.ALL)
     public List<Payment> payments;// 支付
+    
+    @ManyToOne
+    public Store store;
 }

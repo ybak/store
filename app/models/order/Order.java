@@ -10,6 +10,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import models.Store;
 import models.member.Member;
 import models.payment.Payment;
 import models.payment.PaymentConfig;
@@ -18,7 +19,7 @@ import play.db.jpa.Model;
 @Entity
 @Table(name = "store_order")
 public class Order extends Model {
-
+    
     // 订单状态（未处理、已处理、已完成、已作废）
     public static enum OrderStatus {
         UNPROCESSED, PROCESSED, COMPLETED, INVALID
@@ -40,6 +41,7 @@ public class Order extends Model {
     public ShippingStatus shippingStatus;// 发货状态
     public BigDecimal productTotalPrice;// 商品总价格
     public Integer productTotalQuantity;// 商品总数
+    
     public String shipName;// 收货人姓名
     public String shipArea;// 收货地区
     public String shipAreaPath;// 收货地区路径
@@ -48,15 +50,17 @@ public class Order extends Model {
     public String shipPhone;// 收货电话
 
     @ManyToOne
+    public Store store;
+    @ManyToOne
     public PaymentConfig paymentConfig;// 支付方式
     @ManyToOne
     public Member member;// 会员
 
-    @OneToMany(mappedBy = "orderId", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     public List<OrderItem> orderItems;// 订单项
-    @OneToMany(mappedBy = "orderId", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     public List<OrderLog> orderLogs;// 订单日志
-    @OneToMany(mappedBy = "orderId", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     public List<Payment> payments;// 收款
 
     // public String memo;// 附言
